@@ -32,10 +32,12 @@ class HomePage extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              GoRouter.of(context).go("/user", extra: {
-                "name": "kpk",
-                "age": 24,
-              });
+              // GoRouter.of(context).go("/user", extra: {
+              //   "name": "kpk",
+              //   "age": 24,
+              // });
+              String names = "kp";
+              GoRouter.of(context).go("/user/$names");
             },
             child: Text("Goto User page"),
           )
