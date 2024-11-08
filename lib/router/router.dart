@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:gorouter/pages/home_page.dart';
 import 'package:gorouter/pages/profile_page.dart';
 import 'package:gorouter/pages/user_page.dart';
+import 'package:gorouter/router/route_names.dart';
 
 import '../pages/child_page.dart';
 
@@ -30,7 +31,7 @@ class RouterClass {
 
       //profile page
       GoRoute(
-        name: "profile",
+        name: RouteNamesClass.profile,
         path: "/profile",
         builder: (context, state) {
           return ProfilePage();

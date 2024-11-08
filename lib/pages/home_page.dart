@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gorouter/router/route_names.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              GoRouter.of(context).go("/profile");
+              GoRouter.of(context).goNamed(RouteNamesClass.profile);
             },
             child: Text("Goto Profile"),
           ),
