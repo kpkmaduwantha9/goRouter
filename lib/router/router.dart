@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gorouter/pages/age.dart';
 import 'package:gorouter/pages/home_page.dart';
 import 'package:gorouter/pages/profile_page.dart';
 import 'package:gorouter/pages/user_page.dart';
@@ -69,6 +70,18 @@ class RouterClass {
         path: "/user/:name",
         builder: (context, state) {
           return UserPage(userName: state.pathParameters['name']!);
+        },
+      ),
+
+      GoRoute(
+        path: "/age",
+        name: RouteNamesClass.age,
+        builder: (context, state) {
+          final int age = state.uri.queryParameters['age'] == null
+              ? 0
+              : int.parse(state.uri.queryParameters['age']!);
+
+          return AgePAge(age: age);
         },
       )
     ],

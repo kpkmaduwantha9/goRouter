@@ -41,7 +41,18 @@ class HomePage extends StatelessWidget {
               GoRouter.of(context).go("/user/$names");
             },
             child: Text("Goto User page"),
-          )
+          ),
+          ElevatedButton(
+            onPressed: () {
+              GoRouter.of(context).goNamed(
+                RouteNamesClass.age,
+                queryParameters: {
+                  "age": "24",
+                },
+              );
+            },
+            child: Text("Goto Age page"),
+          ),
         ],
       ),
     );
