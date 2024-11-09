@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:gorouter/data/user.dart';
+import 'package:gorouter/models/product_model.dart';
 import 'package:gorouter/pages/age.dart';
+import 'package:gorouter/pages/back.dart';
 import 'package:gorouter/pages/home_page.dart';
 import 'package:gorouter/pages/login_page.dart';
+import 'package:gorouter/pages/products_page.dart';
 import 'package:gorouter/pages/profile_page.dart';
+import 'package:gorouter/pages/single_product_page.dart';
 import 'package:gorouter/pages/user_page.dart';
 import 'package:gorouter/router/route_names.dart';
 
@@ -24,14 +27,15 @@ class RouterClass {
     },
 
     //redirect to login page if user is not logged in
-    redirect: (context, state) {
+
+    /*redirect: (context, state) {
       bool isUserLoggedIn = UserData.isUserLoggedIn;
       if (isUserLoggedIn) {
         return "/";
       } else {
         return "/login";
       }
-    },
+    },*/
 
     routes: [
       //Home Page
@@ -91,6 +95,33 @@ class RouterClass {
         path: "/login",
         builder: (context, state) {
           return LoginPage();
+        },
+      ),
+
+      //back page
+      GoRoute(
+        path: "/back",
+        builder: (context, state) {
+          return BackPage();
+        },
+      ),
+
+      //products page
+      GoRoute(
+        name: RouteNamesClass.products,
+        path: "/products",
+        builder: (context, state) {
+          return ProductsPage();
+        },
+      ),
+
+      //single product page
+      GoRoute(
+        name: RouteNamesClass.singleProduct,
+        path: "/product",
+        builder: (context, state) {
+          final Product product = state.extra as Product;
+          return SingleProductPage(product: product);
         },
       ),
 
