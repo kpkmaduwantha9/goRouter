@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gorouter/data/user.dart';
 import 'package:gorouter/pages/age.dart';
 import 'package:gorouter/pages/home_page.dart';
+import 'package:gorouter/pages/login_page.dart';
 import 'package:gorouter/pages/profile_page.dart';
 import 'package:gorouter/pages/user_page.dart';
 import 'package:gorouter/router/route_names.dart';
@@ -20,6 +22,17 @@ class RouterClass {
         ),
       );
     },
+
+    //redirect to login page if user is not logged in
+    redirect: (context, state) {
+      bool isUserLoggedIn = UserData.isUserLoggedIn;
+      if (isUserLoggedIn) {
+        return "/";
+      } else {
+        return "/login";
+      }
+    },
+
     routes: [
       //Home Page
       GoRoute(
@@ -73,6 +86,14 @@ class RouterClass {
         },
       ),
 
+      //login page
+      GoRoute(
+        path: "/login",
+        builder: (context, state) {
+          return LoginPage();
+        },
+      ),
+
       GoRoute(
         path: "/age",
         name: RouteNamesClass.age,
@@ -83,7 +104,7 @@ class RouterClass {
 
           return AgePAge(age: age);
         },
-      )
+      ),
     ],
   );
 }
