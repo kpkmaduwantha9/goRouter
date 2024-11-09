@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         children: [
           Center(
             child: Text(
-              "Home Page kp m1",
+              "Home Page kp m1 kk",
               style: TextStyle(
                 fontSize: 20,
               ),
