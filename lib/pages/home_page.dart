@@ -53,6 +53,12 @@ class HomePage extends StatelessWidget {
             },
             child: Text("Goto Age page"),
           ),
+          ElevatedButton(
+            onPressed: () {
+              GoRouter.of(context).push("/back");
+            },
+            child: Text("Goto BackPage"),
+          ),
         ],
       ),
     );
